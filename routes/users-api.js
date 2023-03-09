@@ -4,7 +4,7 @@ const db = require('../db/connection');
 
 
 router.get('/', (req, res) => {
-  if (req.query.email) {
+  if (req.body.email) {
     return db.query(`
     SELECT *
     FROM users
