@@ -26,6 +26,7 @@ const petApiRoutes = require('./routes/pets-api');
 const matchApiRoutes = require('./routes/matches-api');
 const userApiRoutes = require('./routes/users-api');
 const relationshipsApiRoutes = require('./routes/relationships-api');
+const messageApiRoutes = require('./routes/messages-api');
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -37,6 +38,7 @@ app.use('/api/pets', petApiRoutes);
 app.use('/api/matches', matchApiRoutes);
 app.use('/api/users', userApiRoutes);
 app.use('/api/relationships', relationshipsApiRoutes);
+app.use('/api/messages', messageApiRoutes);
 
 // Note: mount other resources here, using the same pattern above
 
@@ -49,7 +51,4 @@ app.listen(PORT, () => {
 });
 
 
-//clients -> server.js
-//server.js -> routes
-//routes -> db
 
