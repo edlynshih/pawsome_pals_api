@@ -36,3 +36,5 @@ insert into matches (pet_one, pet_two, pet_one_match, pet_two_match) values (3, 
 insert into matches (pet_one, pet_two, pet_one_match, pet_two_match) values (4, 143, true, false);
 insert into matches (pet_one, pet_two, pet_one_match, pet_two_match) values (5, 143, true, false);
 insert into matches (pet_one, pet_two, pet_one_match, pet_two_match) values (6, 143, true, false);
+insert into matches (pet_one, pet_two, pet_one_match, pet_two_match) values (6, 70, true, false);
+insert into matches (pet_one, pet_two, pet_one_match, pet_two_match) values (7, 70, true, false);

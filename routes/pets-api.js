@@ -52,12 +52,19 @@ router.post('/users', (req, res) => {
 });
 
 
-router.get('/explore/:id', (req, res) => {
+router.get('/explore/:id/:userId', (req, res) => {
+  console.log(req.params);
   return db.query(`
   select *
   from pets as pets where pets.id
-  not in (select other_pet as id from relationships where current_pet = $1)
-  `, [req.params.id])
+  not in (
+    select other_pet as id from relationships where current_pet = $1
+    union
+    SELECT pets.id as id
+    FROM pets
+    WHERE user_id = $2
+    )
+  `, [req.params.id, req.params.userId])
     .then(({ rows: pets }) => {
       res.json(
         pets
