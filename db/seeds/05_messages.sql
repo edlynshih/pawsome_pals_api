@@ -1,4 +1,6 @@
 insert into messages (from_petId, to_petId, message, timestamp) values (70, 100, 'Hi, your dog looks so cute! Do you want to schedule a playdate for our pups?', '2022-07-31 07:54:52');
+insert into messages (from_petId, to_petId, message, timestamp) values (100, 70, 'Yes! Mojo loves to play with medium sized dogs!', '2022-07-31 08:00:13');
+insert into messages (from_petId, to_petId, message, timestamp) values (70, 100, 'Awesome does tomorrow at 1pm work?', '2022-07-31 09:22:23');
 insert into messages (from_petId, to_petId, message, timestamp) values (44, 70, 'Hi, I''m new to the area and looking for other pet owners to connect with. Do you want to set up a playdate for our pets?', '2022-04-09 20:21:03');
 insert into messages (from_petId, to_petId, message, timestamp) values (3, 100, 'That was a fun playdate! We should do it again!', '2022-07-27 17:38:36');
 insert into messages (from_petId, to_petId, message, timestamp) values (23, 70, 'Hey, my dog is a little shy and I''m looking to socialize him. Would you be interested in setting up a playdate for our dogs?', '2023-01-09 23:51:53');

@@ -9,6 +9,7 @@ router.get('/:id', (req, res) => {
   JOIN pets fp ON fp.id = messages.from_petId
   JOIN pets tp ON tp.id = messages.to_petId
   WHERE from_petId = $1 OR to_petId = $1
+  ORDER BY timestamp ASC
   `, [req.params.id])
     .then(({ rows: messages }) => {
       res.json(
