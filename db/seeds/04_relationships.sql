@@ -51,3 +51,5 @@ insert into relationships (current_pet, other_pet, interact) values (9,23,true);
 insert into relationships (current_pet, other_pet, interact) values (23,9,true);
 insert into relationships (current_pet, other_pet, interact) values (3,42,true);
 insert into relationships (current_pet, other_pet, interact) values (42,3,true);
+insert into relationships (current_pet, other_pet, interact) values (6,70,true);
+insert into relationships (current_pet, other_pet, interact) values (7,70,true);
