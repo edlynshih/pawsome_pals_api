@@ -55,16 +55,16 @@ router.post('/users', (req, res) => {
 router.get('/explore/:id/:userId', (req, res) => {
   console.log(req.params);
   return db.query(`
-  select *
-  from pets as pets where pets.id
+  select id, user_id, name, breed, age, sex, spayed_or_neutered, size, city, description, photo_url
+  from pets where id
   not in (
-    select other_pet as id from relationships where current_pet = $1
+    select other_pet as id from relationships where current_pet = $1 and other_pet is not null
     union
-    SELECT pets.id as id
+    (SELECT pets.id as id
     FROM pets
-    WHERE user_id = $2
+    WHERE user_id = $2 and pets.id is not null)
     )
-  `, [req.params.id, req.params.userId])
+  `, [Number(req.params.id), Number(req.params.userId)])
     .then(({ rows: pets }) => {
       res.json(
         pets
