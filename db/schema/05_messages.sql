@@ -1,0 +1,9 @@
+DROP TABLE IF EXISTS messages;
+
+CREATE TABLE messages(
+  id SERIAL PRIMARY KEY NOT NULL,
+  from_petId INTEGER REFERENCES pets(id) ON DELETE CASCADE,
+  to_petId INTEGER REFERENCES pets(id) ON DELETE CASCADE,
+  message TEXT NOT NULL,
+  timestamp DATE
+);
