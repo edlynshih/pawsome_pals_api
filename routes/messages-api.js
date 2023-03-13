@@ -18,7 +18,6 @@ router.get('/:id', (req, res) => {
 });
 
 router.get('/chat/:id/:otherId', (req, res) => {
-  console.log('HELLLLLLLO')
   console.log('HERE IS REQ.PARAMS >>>>>>>>>>>', req.params)
   return db.query(`
   SELECT messages.*, fp.name as from_pet_name, tp.name as to_pet_name, fp.photo_url as from_pet_photo_url, tp.photo_url as to_pet_photo_url
