@@ -2,6 +2,28 @@ const express = require('express');
 const router = express.Router();
 const db = require('../db/connection');
 
+router.post("/", (req, res) => {
+  console.log('Req.body>>>>>>', req.body)
+  return db.query(`
+  INSERT INTO messages (from_petId, to_petId, message, timestamp)
+  VALUES ($1, $2, $3, $4)
+  RETURNING *
+  `, [
+    req.body.from_petId,
+    req.body.to_petId,
+    req.body.message,
+    req.body.timestamp
+  ])
+    .then(({ rows: message }) => {
+      res.json(
+        message.reduce(
+        (previous, current) => ({ ...previous, [current.id]: current }),
+          {}
+        )
+      );
+    });
+});
+
 router.get('/:id', (req, res) => {
   return db.query(`
   SELECT messages.*, fp.name as from_pet_name, tp.name as to_pet_name, fp.photo_url as from_pet_photo_url, tp.photo_url as to_pet_photo_url
