@@ -13,8 +13,12 @@ router.get('/:id', (req, res) => {
   WHERE users.id = $1
   `, [req.params.id])
     .then(({ rows: pets }) => {
-      res.json(
-        pets);
+      console.log(pets);
+      if (pets) {
+        res.json(
+          pets);
+      }
+
     });
 });
 

@@ -11,12 +11,19 @@ router.get('/', (req, res) => {
     WHERE email = $1
     `, [req.query.email])
       .then(({ rows: user }) => {
-        res.json(
-          user.reduce(
-            (previous, current) => ({ ...previous, [current.id]: current }),
-            {}
-          )
-        );
+        if (user.length) {
+          res.json(
+            user.reduce(
+              (previous, current) => ({ ...previous, [current.id]: current }),
+              {}
+            )
+          );
+        } else {
+          setTimeout(() => {
+            res.status(200).json(user[0]);
+          }, 500);
+        }
+
       });
 
   } else {
@@ -44,6 +51,7 @@ router.get('/:id', (req, res) => {
   WHERE id = $1
   `, [req.params.id])
     .then(({ rows: user }) => {
+      console.log(user);
       res.json(
         user.reduce(
           (previous, current) => ({ ...previous, [current.id]: current }),
@@ -76,12 +84,9 @@ router.post('/', (req, res) => {
   RETURNING *
   `, [req.body.email])
     .then(({ rows: user }) => {
-      res.json(
-        user.reduce(
-          (previous, current) => ({ ...previous, [current.id]: current }),
-          {}
-        )
-      );
+      setTimeout(() => {
+        res.status(200).json(user[0]);
+      }, 1000);
     });
 
 });
