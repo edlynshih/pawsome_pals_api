@@ -105,4 +105,22 @@ router.post("/", (req, res) => {
     });
 });
 
+router.delete("/:id", (req, res) => {
+  console.log(req.params);
+  return db
+    .query(
+      `
+  DELETE FROM pets WHERE pets.id = $1;`,
+      [req.params.id]
+    )
+    .then(({ rows: pet }) => {
+      res.json(
+        pet.reduce(
+          (previous, current) => ({ ...previous, [current.id]: current }),
+          {}
+        )
+      );
+    });
+});
+
 module.exports = router;
