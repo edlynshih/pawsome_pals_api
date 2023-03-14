@@ -13,3 +13,5 @@ insert into messages (from_petId, to_petId, message, timestamp) values (3, 4, 'H
 insert into messages (from_petId, to_petId, message, timestamp) values (22, 46, 'Hey there! Our dogs seem to have similar personalities, do you think they would get along?', '2022-08-27 14:24:32');
 insert into messages (from_petId, to_petId, message, timestamp) values (100, 147, 'hello!', '2022-08-01 10:00:14');
 insert into messages (from_petId, to_petId, message, timestamp) values (147, 23, 'for sure', '2023-02-09 23:51:53');
+insert into messages (from_petId, to_petId, message, timestamp) values (22, 70, 'Hey there! Our dogs seem to have similar personalities, do you think they would get along?', '2022-08-27 14:24:32');
+insert into messages (from_petId, to_petId, message, timestamp) values (70, 22, 'for sure', '2023-02-09 23:51:53');
