@@ -5,5 +5,5 @@ CREATE TABLE messages(
   from_petId INTEGER REFERENCES pets(id) ON DELETE CASCADE,
   to_petId INTEGER REFERENCES pets(id) ON DELETE CASCADE,
   message TEXT NOT NULL,
-  timestamp DATE
+  timestamp TIMESTAMP
 );
